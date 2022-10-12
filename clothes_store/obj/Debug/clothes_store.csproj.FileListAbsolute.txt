@@ -1,0 +1,115 @@
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\clothes_store.exe.config
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\clothes_store.exe
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\clothes_store.pdb
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.csprojAssemblyReference.cache
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.Properties.Resources.resources
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.GenerateResource.cache
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.CoreCompileInputs.cache
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.exe
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.pdb
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.InitialisationForm.resources
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\Npgsql.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Buffers.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Memory.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Text.Json.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Threading.Channels.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.ValueTuple.dll
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\Npgsql.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Buffers.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Memory.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Text.Json.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Threading.Channels.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\bin\Debug\System.ValueTuple.xml
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.CopyComplete
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.AdminForm.resources
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.Registration.resources
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.CustomerForm.resources
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.WorkerForm.resources
+C:\Users\grinr\OneDrive\Рабочий стол\Курсовая БД\clothes_store\clothes_store\obj\Debug\clothes_store.OtkatForm.resources
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\clothes_store.exe.config
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\clothes_store.exe
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\clothes_store.pdb
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\Npgsql.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Buffers.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Memory.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Text.Json.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Threading.Channels.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.ValueTuple.dll
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\Npgsql.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Buffers.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Memory.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Text.Json.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Threading.Channels.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\bin\Debug\System.ValueTuple.xml
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.csprojAssemblyReference.cache
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.AdminForm.resources
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.CustomerForm.resources
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.OtkatForm.resources
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.Properties.Resources.resources
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.InitialisationForm.resources
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.Registration.resources
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.WorkerForm.resources
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.GenerateResource.cache
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.CoreCompileInputs.cache
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.CopyComplete
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.exe
+C:\Users\sulin\Desktop\clothes_store\clothes_store\obj\Debug\clothes_store.pdb
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\clothes_store.exe.config
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\clothes_store.exe
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\clothes_store.pdb
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\Npgsql.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Buffers.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Memory.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Text.Json.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Threading.Channels.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.ValueTuple.dll
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\Npgsql.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Buffers.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Memory.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Text.Json.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Threading.Channels.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\bin\Debug\System.ValueTuple.xml
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.AssemblyReference.cache
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.SuggestedBindingRedirects.cache
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.AdminForm.resources
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.CustomerForm.resources
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.OtkatForm.resources
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.Properties.Resources.resources
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.InitialisationForm.resources
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.Registration.resources
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.WorkerForm.resources
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.GenerateResource.cache
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.CoreCompileInputs.cache
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.csproj.CopyComplete
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.exe
+C:\Users\sulin\Documents\3й курс\БД\clothes_store\clothes_store\obj\Debug\clothes_store.pdb

@@ -1,0 +1,485 @@
+CREATE TABLE public."credit_card"
+(
+    id serial NOT NULL,
+    "customer" VARCHAR NOT NULL,
+    "card_code" VARCHAR NOT NULL,
+    "cart_cvv" VARCHAR NOT NULL,
+    "cart_end_date" VARCHAR NOT NULL,   
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE public."customers"
+(
+    id serial NOT NULL,
+    "name" VARCHAR NOT NULL,
+    "surname" VARCHAR NOT NULL,
+    "user_login" VARCHAR NOT NULL,
+    "user_password" VARCHAR NOT NULL,
+    "user_mail" VARCHAR NOT NULL,
+    "credit_card_id" integer NOT NULL references credit_card MATCH SIMPLE ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE public."promo_code"
+(
+    id serial NOT NULL,
+    "start_date" VARCHAR NOT NULL,
+    "end_date" VARCHAR NOT NULL,
+    "sale_in_percent" integer NOT NULL,   
+    "the_code" VARCHAR NOT NULL,
+	
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE public."stuff"
+(
+    id serial NOT NULL,
+    "login" VARCHAR NOT NULL,
+    "password" VARCHAR NOT NULL,
+    "name" VARCHAR NOT NULL,
+    "surname" VARCHAR NOT NULL,
+    "patronimic" VARCHAR NOT NULL,
+    "post" VARCHAR NOT NULL,
+	
+    PRIMARY KEY (id)
+);
+
+
+
+CREATE TABLE public."brands"
+(
+    id serial NOT NULL,
+    "name_of_brand" VARCHAR NOT NULL,
+    "description" VARCHAR NOT NULL,    	
+    PRIMARY KEY (id)
+);
+
+
+
+CREATE TABLE public."size_sex"
+(
+    id serial NOT NULL,
+    "sex_size" VARCHAR NOT NULL,  
+	"description" VARCHAR NOT NULL,	
+	
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE public."list_of_products"
+(
+    id serial NOT NULL,
+    "product_name" VARCHAR NOT NULL,  		
+	"price" integer NOT NULL,	
+	"color" VARCHAR NOT NULL,  
+	"ammount" integer NOT NULL,
+	"brands_id" integer NOT NULL references brands,
+	"hand_type" VARCHAR NOT NULL,  	
+	"size_id" integer NOT NULL references size_sex,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE public."booking"
+(
+    id serial NOT NULL,
+    "customers_id" integer NOT NULL references customers,   
+	"adress_booking" VARCHAR NOT NULL,
+	"promo_code" VARCHAR,	
+	"product_price" integer NOT NULL,
+	"sale" integer,
+	"end_price" integer NOT NULL,
+ "list_of_products_id" integer NOT NULL references list_of_products,
+"status" VARCHAR NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+
+CREATE TABLE public."review"
+(
+    id serial NOT NULL,
+	"customer_review" integer NOT NULL references customers,
+        "score" numeric(10,2) NOT NULL,
+	"text" VARCHAR NOT NULL,
+        "product_name" VARCHAR NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+
+CREATE TABLE public."stuff_otkat"
+(
+    id integer NOT NULL,
+    "login" VARCHAR NOT NULL,
+    "password" VARCHAR NOT NULL,
+    "name" VARCHAR NOT NULL,
+    "surname" VARCHAR NOT NULL,
+    "patronimic" VARCHAR NOT NULL,
+    "post" VARCHAR NOT NULL,
+    "Edit" VARCHAR NOT NULL,
+    "Time_edit" timestamp NOT NULL
+);
+
+CREATE TABLE public."customers_otkat"
+(
+    id integer NOT NULL,
+    "name" VARCHAR NOT NULL,
+    "surname" VARCHAR NOT NULL,
+    "user_login" VARCHAR NOT NULL,
+    "user_password" VARCHAR NOT NULL,
+    "user_mail" VARCHAR NOT NULL,
+    "credit_card_id" integer NOT NULL references credit_card MATCH SIMPLE ON DELETE CASCADE,
+    "Edit" VARCHAR NOT NULL,
+    "Time_edit" timestamp NOT NULL
+);
+
+CREATE TABLE public."booking_otkat"
+(
+    id integer NOT NULL,
+    "customers_id" integer NOT NULL references customers,   
+	"adress_booking" VARCHAR NOT NULL,
+	"promo_code" VARCHAR,	
+	"product_price" integer NOT NULL,
+	"sale" integer,
+	"end_price" integer NOT NULL,
+    "list_of_products_id" integer NOT NULL references list_of_products,
+	"status" VARCHAR NOT NULL,
+    "edit" VARCHAR NOT NULL,
+    "time_edit" timestamp NOT NULL
+);
+
+
+
+CREATE TABLE public."list_of_products_otkat"
+(
+    id integer NOT NULL,
+    "product_name" VARCHAR NOT NULL,  		
+	"price" integer NOT NULL,	
+	"color" VARCHAR NOT NULL,  
+	"ammount" integer NOT NULL,
+	"brands_id" integer NOT NULL references brands,
+	"hand_type" VARCHAR NOT NULL,  	
+	"size_id" integer NOT NULL references size_sex,
+     "edit" VARCHAR NOT NULL,
+    "time_edit" timestamp NOT NULL
+);
+
+--TRIGGER FUNCTIONS--
+
+CREATE OR REPLACE FUNCTION process_stuff() RETURNS TRIGGER AS $process_stuff$
+BEGIN
+IF (TG_OP = 'DELETE') THEN
+INSERT INTO "stuff_otkat" SELECT OLD.*,'DELETE',now();
+RETURN OLD;
+ELSIF (TG_OP = 'UPDATE') THEN
+IF (OLD != NEW) THEN
+INSERT INTO "stuff_otkat" SELECT OLD.*,'UPDATE',now();
+RETURN NEW;
+END IF;
+ELSIF (TG_OP = 'INSERT') THEN
+INSERT INTO "stuff_otkat" SELECT NEW.*,'INSERT',now();
+RETURN NEW;
+END IF;
+RETURN NULL;
+END;
+$process_stuff$ LANGUAGE plpgsql;
+CREATE TRIGGER stuff
+AFTER INSERT OR UPDATE OR DELETE ON "stuff"
+FOR EACH ROW EXECUTE PROCEDURE process_stuff();
+
+
+CREATE OR REPLACE FUNCTION process_customers() RETURNS TRIGGER AS $process_customers$
+BEGIN
+IF (TG_OP = 'DELETE') THEN
+INSERT INTO "customers_otkat" SELECT OLD.*,'DELETE',now();
+RETURN OLD;
+ELSIF (TG_OP = 'UPDATE') THEN
+IF (OLD != NEW) THEN
+INSERT INTO "customers_otkat" SELECT OLD.*,'UPDATE',now();
+RETURN NEW;
+END IF;
+ELSIF (TG_OP = 'INSERT') THEN
+INSERT INTO "customers_otkat" SELECT NEW.*,'INSERT',now();
+RETURN NEW;
+END IF;
+RETURN NULL;
+END;
+$process_customers$ LANGUAGE plpgsql;
+CREATE TRIGGER customers
+AFTER INSERT OR UPDATE OR DELETE ON "customers"
+FOR EACH ROW EXECUTE PROCEDURE process_customers();
+
+
+CREATE OR REPLACE FUNCTION process_booking() RETURNS TRIGGER AS $process_booking$
+BEGIN
+IF (TG_OP = 'DELETE') THEN
+INSERT INTO "booking_otkat" SELECT OLD.*,'DELETE',now();
+RETURN OLD;
+ELSIF (TG_OP = 'UPDATE') THEN
+IF (OLD != NEW) THEN
+INSERT INTO "booking_otkat" SELECT OLD.*,'UPDATE',now();
+RETURN NEW;
+END IF;
+ELSIF (TG_OP = 'INSERT') THEN
+INSERT INTO "booking_otkat" SELECT NEW.*,'INSERT',now();
+RETURN NEW;
+END IF;
+RETURN NULL;
+END;
+$process_booking$ LANGUAGE plpgsql;
+CREATE TRIGGER booking
+AFTER INSERT OR UPDATE OR DELETE ON "booking"
+FOR EACH ROW EXECUTE PROCEDURE process_booking();
+
+
+CREATE OR REPLACE FUNCTION process_list_of_products() RETURNS TRIGGER AS $process_list_of_products$
+BEGIN
+IF (TG_OP = 'DELETE') THEN
+INSERT INTO "list_of_products_otkat" SELECT OLD.*,'DELETE',now();
+RETURN OLD;
+ELSIF (TG_OP = 'UPDATE') THEN
+IF (OLD != NEW) THEN
+INSERT INTO "list_of_products_otkat" SELECT OLD.*,'UPDATE',now();
+RETURN NEW;
+END IF;
+ELSIF (TG_OP = 'INSERT') THEN
+INSERT INTO "list_of_products_otkat" SELECT NEW.*,'INSERT',now();
+RETURN NEW;
+END IF;
+RETURN NULL;
+END;
+$process_list_of_products$ LANGUAGE plpgsql;
+CREATE TRIGGER booking
+AFTER INSERT OR UPDATE OR DELETE ON "list_of_products"
+FOR EACH ROW EXECUTE PROCEDURE process_list_of_products();
+
+
+
+
+
+--INSERTAEM----
+
+INSERT INTO public.credit_card
+("customer", "card_code", "cart_cvv", "cart_end_date")
+ VALUES 
+  ('ROMAN GRIN', '7069 3129 9634', '004', '01.25'),
+   ('NIKITA NECHAEV', '7984 3129 9634', '199', '12.26'),
+    ('ALEXEY NECHAEV', '3604 7899 9634', '112', '05.26'),
+   ('ALEXEY HRIPKO', '7020 3129 9634', '788', '05.26'),
+   ('NIKITA KASABOV', '7890 7899 9321', '172', '07.27');
+
+
+INSERT INTO public.customers
+("name", "surname", "user_login", "user_password","user_mail","credit_card_id")
+ VALUES 
+   ('Roman', 'Grin', 'grinroman', '2281337','grinromchik@gmail',1),
+   ('Nikita', 'Nechaev', 'nikitanechaev', '1337228','nikitanechaev@gmail',2),
+   ('Alexey', 'Nechaev', 'alexeynechaev', '13371488','alexeynechaev@gmail',3),
+   ('Alexey', 'Hripko', 'alexeyhripko', '1488228','hrilii@gmail',4),
+   ('Nikita', 'Kasabov', 'nikitakasabov', '2281488','hasen@gmail',5);
+
+
+
+INSERT INTO public.promo_code
+("start_date", "end_date", "sale_in_percent", "the_code")
+ VALUES 
+   ('01.02.2021', '01.02.2022', 15, 'SALE1'),
+   ('01.03.2021', '01.03.2022', 9, 'SALE2'),
+   ('01.04.2021', '01.04.2022', 11, 'SALE3');
+
+
+INSERT INTO public.stuff
+("login", "password", "name", "surname","patronimic","post")
+ VALUES 
+   ('grinroman', '2281337', 'Roman', 'Grin','Andreevich','admin'),
+   ('alexeyhripko', '1337228', 'Alexey', 'Hripko','Valerievich','worker'),
+   ('nikitanechaev', '2281488', 'Nikita', 'Nechaev','Aleksandrovich','worker'),
+   ('nikitakasabov', '2281488', 'Nikita', 'Kasabov','Valerievich','worker');
+
+INSERT INTO public.brands
+("id", "name_of_brand", "description")
+ VALUES 
+   ('1', 'Adidas', '3 полоски в гардеропе - дань уважения знаменитой классике и умение разбираться в вещах'),
+  ('2', 'Reebok', 'Один из самых знаменитых спортивных брендов, который сделает вашу прогулку или тренировку лучше.'),
+   ('3', 'Nike', 'Nike - символ качества, удобства и технологичности'),
+   ('4', 'Puma', 'Кошка на груди символизирует лучшую в мире спортивную одежду'),
+   ('5', 'Ralf Lauren', 'Способ подчеркнуть свой статус, обозначив свое положение в обществе'),
+   ('6', 'Tommy Hilfiger', 'Бело-красный логотип покажет кто ты на самом деле'),
+   ('7', 'Charhartt', 'От одежды обычных рабочих до качественной одежды на каждый день'),
+   ('8', 'Lacoste', 'Кто не знает этот логотип?'),
+   ('9', 'Fred Perry', 'От теннисной формы до показателя статуса и элегантности');
+
+
+INSERT INTO public.size_sex
+(id,"sex_size", "description")
+ VALUES 
+   (1, 'MXS',  'Рост до: 168'),
+   (2, 'MS',   'Рост до: 174'),
+   (3, 'MM',   'Рост до: 180'),
+   (4, 'ML',   'Рост до: 186'),
+   (5, 'MXL',  'Рост до: 192'),
+   (6, 'MXXL', 'Рост до: 198'),
+   (7, 'MXXXL','Рост до: 204'),
+   (8, 'WXS',  'Рост до: 158'),
+   (9, 'WS',   'Рост до: 163'),
+   (10, 'WM',   'Рост до: 168'),
+   (11, 'WL',   'Рост до: 173'),
+   (12, 'WXL',  'Рост до: 178'),
+   (13, 'WXXL', 'Рост до: 183'),
+   (14 ,'WXXXL','Рост до: 188');
+
+
+INSERT INTO public.list_of_products
+("product_name","price","color","ammount","brands_id","hand_type","size_id")
+ VALUES 
+('Adidas casual поло', 3000,'красный',20,1,'поло',1),
+('Adidas casual поло', 3000,'красный',20,1,'поло',2),
+('Adidas casual поло', 3000,'красный',20,1,'поло',3),
+('Adidas casual поло', 3000,'красный',20,1,'поло',4),
+('Adidas casual поло', 3000,'красный',20,1,'поло',5),
+('Adidas casual поло', 3000,'красный',20,1,'поло',6),
+('Adidas casual поло', 3000,'красный',20,1,'поло',7),
+('Adidas casual поло', 3000,'красный',20,1,'поло',8),
+('Adidas casual поло', 3000,'красный',20,1,'поло',9),
+('Adidas casual поло', 3000,'красный',20,1,'поло',10),
+('Adidas casual поло', 3000,'красный',20,1,'поло',11),
+('Adidas casual поло', 3000,'красный',20,1,'поло',12),
+('Adidas casual поло', 3000,'красный',20,1,'поло',13),
+('Adidas casual поло', 3000,'красный',20,1,'поло',14),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',1),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',2),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',3),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',4),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',5),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',6),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',7),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',8),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',9),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',10),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',11),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',12),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',13),
+('Adidas sport футболка', 3000,'чёрный',20,1,'футболка',14),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',1),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',2),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',3),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',4),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',5),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',6),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',7),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',8),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',9),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',10),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',11),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',12),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',13),
+('Reebok crossfit футболка', 3500,'белый',20,2,'футболка',14),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',1),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',2),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',4),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',5),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',6),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',7),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',8),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',9),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',10),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',11),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',12),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',13),
+('Nike traning футболка', 3200,'серый',20,3,'футболка',14),
+('Nike golf поло', 3200,',белый',20,3,'поло',1),
+('Nike golf поло', 3200,',белый',20,3,'поло',2),
+('Nike golf поло', 3200,',белый',20,3,'поло',3),
+('Nike golf поло', 3200,',белый',20,3,'поло',4),
+('Nike golf поло', 3200,',белый',20,3,'поло',5),
+('Nike golf поло', 3200,',белый',20,3,'поло',6),
+('Nike golf поло', 3200,',белый',20,3,'поло',7),
+('Nike golf поло', 3200,',белый',20,3,'поло',8),
+('Nike golf поло', 3200,',белый',20,3,'поло',9),
+('Nike golf поло', 3200,',белый',20,3,'поло',10),
+('Nike golf поло', 3200,',белый',20,3,'поло',11),
+('Nike golf поло', 3200,',белый',20,3,'поло',12),
+('Nike golf поло', 3200,',белый',20,3,'поло',13),
+('Nike golf поло', 3200,',белый',20,3,'поло',14),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',1),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',2),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',3),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',4),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',5),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',6),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',7),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',8),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',9),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',10),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',11),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',12),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',13),
+('Puma casual футболка', 3200,'желтый',20,4,'футболка',14),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',1),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',2),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',3),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',4),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',5),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',6),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',7),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',8),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',9),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',10),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',11),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',12),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',13),
+('Ralf Lauren поло', 7000,'серый',20,5,'поло',14),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',1),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',2),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',3),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',4),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',5),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',6),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',7),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',8),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',9),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',10),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',11),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',12),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',13),
+('Ralf Lauren поло', 7000,'красный',20,5,'поло',14);
+
+INSERT INTO public.booking
+("customers_id","adress_booking","promo_code","product_price","sale","end_price","list_of_products_id","status")
+ VALUES 
+(1, 'ул 3-го Интернационала д.5 кв 261','SALE1',3000,450,2550,1,'собирается'),
+(1, 'ул 3-го Интернационала д.5 кв 261','SALE1',3000,450,2550,30,'отправлен'),
+(2, 'ул 3-го Интернационала д.5 кв 54','SALE1',3200,480,2720,45,'собирается'),
+(2, 'ул 3-го Интернационала д.5 кв 54','SALE1',3200,480,2720,28,'отправлен'),
+(3, 'ул 3-го Интернационала д.6 кв 71','SALE1',3500,525,2975,26,'отправлен'),
+(3, 'ул 3-го Интернационала д.6 кв 71','SALE1',3500,525,2975,25,'собирается'),
+(4, 'ул 3-го Интернационала д.7 кв 55',null,7000,null,7000,29,'собирается'),
+(4, 'ул 3-го Интернационала д.6 кв 55',null,7000,null,7000,85,'отправлен'),
+(5, 'ул 3-го Интернационала д.5 кв 315',null,3200,null,3200,91,'собирается'),
+(5, 'ул 3-го Интернационала д.5 кв 315',null,3200,null,3200,101,'отправлен');
+
+
+
+INSERT INTO public.review
+(customer_review,score,text,product_name)
+ VALUES 
+(1,5.00,'хороший товар с отличным качеством!','Adidas casual поло'),
+(2,4.00,'Долгая доставка, а так все прекрасно!','Adidas casual поло'),
+(3,3.50,'Слишком дорого за такой товар','Adidas casual поло'),
+(1,5.00,'хороший товар с отличным качеством!','Reebok crossfit футболка'),
+(2,4.00,'Долгая доставка, а так все прекрасно!','Reebok crossfit футболка'),
+(3,3.50,'Слишком дорого за такой товар','Reebok crossfit футболка'),
+(1,5.00,'хороший товар с отличным качеством!','Nike traning футболка'),
+(2,4.00,'Долгая доставка, а так все прекрасно!','Nike traning футболка'),
+(3,3.50,'Слишком дорого за такой товар','Nike traning футболка'),
+(1,5.00,'хороший товар с отличным качеством!','Nike golf поло'),
+(2,4.00,'Долгая доставка, а так все прекрасно!','Nike golf поло'),
+(3,3.50,'Слишком дорого за такой товар','Nike golf поло'),
+(1,5.00,'хороший товар с отличным качеством!','Puma casual футболка'),
+(2,4.00,'Долгая доставка, а так все прекрасно!','Puma casual футболка'),
+(3,3.50,'Слишком дорого за такой товар','Puma casual футболка'),
+(1,5.00,'хороший товар с отличным качеством!','Ralf Lauren поло'),
+(2,4.00,'Долгая доставка, а так все прекрасно!','Ralf Lauren поло'),
+(3,3.50,'Слишком дорого за такой товар','Ralf Lauren поло');
